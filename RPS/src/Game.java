@@ -10,9 +10,10 @@ public class Game {
 		System.out.print("Enter your move: ");
 		Scanner inputScanner = new Scanner(System.in);
 		String userInput = inputScanner.nextLine();
+		int length = moves.length;
+		boolean isInteger = userInput.matches("[-+]?\\d+");
 		if(userInput.length() > 0) {
-			if(userInput.equals("?") || userInput.equals("0")) return userInput;
-			if(Integer.parseInt(userInput) <= moves.length) return userInput;
+			if(userInput.equals("?") || userInput.equals("0") || isInteger && Integer.parseInt(userInput) <= length) return userInput;
 		}
 		Menu(moves);
 		return getMove(moves);
